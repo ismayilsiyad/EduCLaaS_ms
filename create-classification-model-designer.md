@@ -94,7 +94,7 @@ To get started with Azure Machine Learning designer, first you must create a pip
 
 1. Then in the project, next to the pipeline name on the left, select the arrows icon to expand the panel if it is not already expanded. The panel should open by default to the **Asset library** pane, indicated by the books icon at the top of the panel. Note that there is a search bar to locate assets. Notice two buttons, **Data** and **Component**.
 
-    ![Screenshot of location of designer asset library, search bar, and data icon.](media/create-classification-model/designer-asset-library-data.png)
+    ![Screenshot of location of designer asset library, search bar, and data icon.](media/designer-asset-library-data.png)
 
 1. Select **Data**. Search for and place the **diabetes-data** dataset onto the canvas.
 
@@ -108,7 +108,7 @@ To get started with Azure Machine Learning designer, first you must create a pip
 
 1. Close the **DataOutput** tab so that you can see the dataset on the canvas like this:
 
-    ![Screenshot of the diabetes-data dataset on the designer canvas.](media/create-classification-model/diabetes-data.png)
+    ![Screenshot of the diabetes-data dataset on the designer canvas.](media/diabetes-data.png)
 
 ## Add transformations
 
@@ -116,7 +116,7 @@ Before you can train a model, you typically need to apply some pre-processing tr
 
 1. In the **Asset library** pane on the left, select **Component**, which contains a wide range of modules you can use for data transformation and model training. You can also use the search bar to quickly locate modules.
 
-    ![Screenshot of location of designer asset library, search bar, and components icon.](media/create-classification-model/designer-asset-library-components.png)
+    ![Screenshot of location of designer asset library, search bar, and components icon.](media/designer-asset-library-components.png)
 
 1. Find the **Select Columns in Dataset** module and place it on the canvas below the **diabetes-data** dataset. Then connect the output from the bottom of the **diabetes-data** dataset to the input at the top of the **Select Columns in Dataset** module.
 
@@ -124,7 +124,7 @@ Before you can train a model, you typically need to apply some pre-processing tr
 
 1. Find the **Normalize Data** module and place it on the canvas below the **Select Columns in Dataset** module. Then connect the output from the bottom of the **Select Columns in Dataset** module to the input at the top of the **Normalize Data** module, like this:
 
-    ![Screenshot of a pipeline with the dataset connected to select columns and Normalize Data module.](media/create-classification-model/dataset-normalize.png)
+    ![Screenshot of a pipeline with the dataset connected to select columns and Normalize Data module.](media/dataset-normalize.png)
 
 1. Double-click the **Normalize Data** module to view its settings, noting that it requires you to specify the transformation method and the columns to be transformed.
 
@@ -133,7 +133,7 @@ Before you can train a model, you typically need to apply some pre-processing tr
 ```
 Pregnancies, PlasmaGlucose, DiastolicBloodPressure, TricepsThickness, SerumInsulin, BMI, DiabetesPedigree, Age
 ```
-![Screenshot of the columns selected for normalization.](media/create-classification-model/normalize-data.png)
+![Screenshot of the columns selected for normalization.](media/normalize-data.png)
 
 Click **Save** and close the selection box.
 
@@ -173,7 +173,7 @@ It's common practice to train the model using a subset of the data, while holdin
 
 In this exercise, you're going to work through steps to extend the **Diabetes Training** pipeline as shown here:
 
-![Screenshot of how to split data, then train with logistic regression and score.](media/create-classification-model/train-score-pipeline.png)
+![Screenshot of how to split data, then train with logistic regression and score.](media/train-score-pipeline.png)
 
 Follow the steps below, using the image above for reference as you add and configure the required modules.
 
@@ -231,7 +231,7 @@ The validation data you held back and used to score the model includes the known
 
 1. Ensure your pipeline looks like this:
 
-    ![Screenshot of the Evaluate Model module added to Score Model module.](media/create-classification-model/evaluate-pipeline.png)
+    ![Screenshot of the Evaluate Model module added to Score Model module.](media/evaluate-pipeline.png)
 
 1. Select **Configure & Submit**, and run the pipeline using the existing experiment named **mslearn-diabetes-training**.
 
