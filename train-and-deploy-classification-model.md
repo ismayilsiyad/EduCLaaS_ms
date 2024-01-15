@@ -94,7 +94,7 @@ To get started with Azure Machine Learning designer, first you must create a pip
 
 1. Then in the project, next to the pipeline name on the left, select the arrows icon to expand the panel if it is not already expanded. The panel should open by default to the **Asset library** pane, indicated by the books icon at the top of the panel. Note that there is a search bar to locate assets. Notice two buttons, **Data** and **Component**.
 
-    ![Screenshot of location of designer asset library, search bar, and data icon.](media/create-classification-model/designer-asset-library-data.png)
+    ![Screenshot of location of designer asset library, search bar, and data icon.](media/designer-asset-library-data.png)
 
 1. Select **Data**. Search for and place the **diabetes-data** dataset onto the canvas.
 
@@ -108,7 +108,7 @@ To get started with Azure Machine Learning designer, first you must create a pip
 
 1. Close the **DataOutput** tab so that you can see the dataset on the canvas like this:
 
-    ![Screenshot of the diabetes-data dataset on the designer canvas.](media/create-classification-model/diabetes-data.png)
+    ![Screenshot of the diabetes-data dataset on the designer canvas.](media/diabetes-data.png)
 
 ## Add transformations
 
@@ -116,7 +116,7 @@ Before you can train a model, you typically need to apply some pre-processing tr
 
 1. In the **Asset library** pane on the left, select **Component**, which contains a wide range of modules you can use for data transformation and model training. You can also use the search bar to quickly locate modules.
 
-    ![Screenshot of location of designer asset library, search bar, and components icon.](media/create-classification-model/designer-asset-library-components.png)
+    ![Screenshot of location of designer asset library, search bar, and components icon.](media/designer-asset-library-components.png)
 
 1. Find the **Select Columns in Dataset** module and place it on the canvas below the **diabetes-data** dataset. Then connect the output from the bottom of the **diabetes-data** dataset to the input at the top of the **Select Columns in Dataset** module.
 
@@ -124,7 +124,7 @@ Before you can train a model, you typically need to apply some pre-processing tr
 
 1. Find the **Normalize Data** module and place it on the canvas below the **Select Columns in Dataset** module. Then connect the output from the bottom of the **Select Columns in Dataset** module to the input at the top of the **Normalize Data** module, like this:
 
-    ![Screenshot of a pipeline with the dataset connected to select columns and Normalize Data module.](media/create-classification-model/dataset-normalize.png)
+    ![Screenshot of a pipeline with the dataset connected to select columns and Normalize Data module.](media/dataset-normalize.png)
 
 1. Double-click the **Normalize Data** module to view its settings, noting that it requires you to specify the transformation method and the columns to be transformed.
 
@@ -133,7 +133,7 @@ Before you can train a model, you typically need to apply some pre-processing tr
 ```
 Pregnancies, PlasmaGlucose, DiastolicBloodPressure, TricepsThickness, SerumInsulin, BMI, DiabetesPedigree, Age
 ```
-![Screenshot of the columns selected for normalization.](media/create-classification-model/normalize-data.png)
+![Screenshot of the columns selected for normalization.](media/normalize-data.png)
 
 Click **Save** and close the selection box.
 
@@ -173,7 +173,7 @@ It's common practice to train the model using a subset of the data, while holdin
 
 In this exercise, you're going to work through steps to extend the **Diabetes Training** pipeline as shown here:
 
-![Screenshot of how to split data, then train with logistic regression and score.](media/create-classification-model/train-score-pipeline.png)
+![Screenshot of how to split data, then train with logistic regression and score.](media/train-score-pipeline.png)
 
 Follow the steps below, using the image above for reference as you add and configure the required modules.
 
@@ -231,7 +231,7 @@ The validation data you held back and used to score the model includes the known
 
 1. Ensure your pipeline looks like this:
 
-    ![Screenshot of the Evaluate Model module added to Score Model module.](media/create-classification-model/evaluate-pipeline.png)
+    ![Screenshot of the Evaluate Model module added to Score Model module.](media/evaluate-pipeline.png)
 
 1. Select **Configure & Submit**, and run the pipeline using the existing experiment named **mslearn-diabetes-training**.
 
@@ -261,7 +261,7 @@ The performance of this model isn't all that great, partly because we performed 
 
 1. Locate the menu above the canvas and select **Create inference pipeline**. You may need to expand your screen to full and click on the three dots icon **...** on the top right hand corner of the screen in order to find **Create inference pipeline** in the menu.  
 
-    ![Screenshot of location of create inference pipeline.](media/create-classification-model/create-inference-pipeline.png)
+    ![Screenshot of location of create inference pipeline.](media/create-inference-pipeline.png)
 
 1. In the **Create inference pipeline** drop-down list, select **Real-time inference pipeline**. After a few seconds, a new version of your pipeline named **Diabetes Training-real time inference** will be opened.
 
@@ -269,7 +269,7 @@ The performance of this model isn't all that great, partly because we performed 
 
     You're going to make the following changes to the inference pipeline:
 
-    ![Screenshot of an inference pipeline with changes indicated.](media/create-classification-model/inference-changes.png)
+    ![Screenshot of an inference pipeline with changes indicated.](media/inference-changes.png)
 
     - Add a **web service input** component for new data to be submitted.
     - Replace the **diabetes-data** dataset with an **Enter Data Manually** module that doesn't include the label column (**Diabetic**).
@@ -314,7 +314,7 @@ The performance of this model isn't all that great, partly because we performed 
 
 1. Verify that your pipeline looks similar to the following image:
 
-    ![Screenshot of a complete inference pipeline.](media/create-classification-model/visual-inference.png)
+    ![Screenshot of a complete inference pipeline.](media/visual-inference.png)
 
 1. Run the pipeline as a new experiment named **mslearn-diabetes-inference** on your compute cluster. The experiment may take a while to run.
 
@@ -333,7 +333,7 @@ After you've created and tested an inference pipeline for real-time inferencing,
 
 1. At the top of the **Predict Diabetes** job window, select **Deploy**.
 
-    ![Screenshot of the deploy button for your Predict Auto Price inference pipeline.](media/create-classification-model/deploy-screenshot.png)
+    ![Screenshot of the deploy button for your Predict Auto Price inference pipeline.](media/deploy-screenshot.png)
 
 1. In the **Set up real-time endpoint** select **Deploy new real-time endpoint** and use the following settings:
     - **Name**: predict-diabetes
@@ -346,7 +346,7 @@ After you've created and tested an inference pipeline for real-time inferencing,
 
 1. On the **Endpoints** page, open the **predict-diabetes** real-time endpoint.
 
-    ![Screenshot of the location of the Endpoints option on the left-hand pane.](media/create-classification-model/endpoints-screenshot.png)
+    ![Screenshot of the location of the Endpoints option on the left-hand pane.](media/endpoints-screenshot.png)
 
 1. When the **predict-diabetes** endpoint opens, select the **Test** tab. We will use it to test our model with new data. Delete the current data under **Input data to test real-time endpoint**. Copy and paste the below data into the data section:  
 
@@ -375,7 +375,7 @@ After you've created and tested an inference pipeline for real-time inferencing,
 
 1. Select **Test**. On the right hand of the screen, you should see the output **'DiabetesPrediction'**. The output is 1 if the patient is predicted to have diabetes, and 0 if the patient is predicted not to have diabetes.  
 
-    ![Screenshot of the Test pane.](media/create-classification-model/test-interface.png)
+    ![Screenshot of the Test pane.](media/test-interface.png)
 
     You have just tested a service that is ready to be connected to a client application using the credentials in the **Consume** tab. We will end the lab here. You are welcome to continue to experiment with the service you just deployed.
 
