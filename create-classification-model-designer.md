@@ -67,7 +67,7 @@ The compute cluster will take some time to be created. You can move onto the nex
         - **Dataset type**: Tabular
     - **Data source**: From web files
     - **Web URL**:
-        - **Web URL**: https://aka.ms/diabetes-data
+        - **Web URL**: https://raw.githubusercontent.com/MicrosoftLearning/mslearn-azure-ml/main/Labs/03/data/diabetes.csv
         - **Skip data validation**: *do not select*
     - **Settings**:
         - **File format**: Delimited
